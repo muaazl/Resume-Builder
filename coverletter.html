@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Writer - Resume Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-off-white text-teal-900">
+
+  <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-semibold text-teal-700">Resume Builder</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-teal-500">Home</a></li>
+                <li><a href="resume.html" class="hover:text-teal-500">Resume Builder</a></li>
+                <li><a href="coverletter.html" class="hover:text-teal-500">Cover Letter</a></li>
+                <li><a href="index.html#about" class="hover:text-teal-500">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-semibold mb-6 text-center">Cover Letter Writer</h1>
+
+        <div class="mb-8 flex justify-center gap-4">
+            <button id="autoGenerateBtn" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Auto-Generate</button>
+            <button id="manualWriteBtn" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Manual Writing</button>
+        </div>
+
+         <div id="autoGenerateForm" class="hidden">
+           <h2 class="text-2xl font-semibold mb-4">Auto Generate Cover Letter</h2>
+          <form id="autoForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mb-4">
+                   <label for="userNameAuto" class="block text-gray-700 text-sm font-bold mb-2">Your Name:</label>
+                   <input type="text" id="userNameAuto" name="userNameAuto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+
+              <div class="mb-4">
+                <label for="jobTitle" class="block text-gray-700 text-sm font-bold mb-2">Job Title:</label>
+                <input type="text" id="jobTitle" name="jobTitle" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+             </div>
+
+              <div class="mb-4">
+                 <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                 <input type="text" id="companyName" name="companyName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+               </div>
+
+                <div class="md:col-span-2">
+                    <label for="jobDescription" class="block text-gray-700 text-sm font-bold mb-2">Job Description:</label>
+                   <textarea id="jobDescription" name="jobDescription" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                </div>
+
+             <div class="md:col-span-2 flex justify-center">
+                <button type="button" id="autoPreviewBtn" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Preview</button>
+            </div>
+          </form>
+         </div>
+
+
+          <div id="manualEditor" class="hidden">
+               <h2 class="text-2xl font-semibold mb-4">Write Cover Letter Manually</h2>
+                <div class="mb-4">
+                   <label for="userNameManual" class="block text-gray-700 text-sm font-bold mb-2">Your Name:</label>
+                     <input type="text" id="userNameManual" name="userNameManual" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                 <textarea id="manualTextArea" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                <div class="mt-4 flex justify-center">
+                     <button id="manualPreviewBtn" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Preview</button>
+                 </div>
+            </div>
+
+
+
+         <div id="previewContainer" class="mt-8 bg-white shadow-md rounded-md p-6 hidden">
+             <h2 class="text-2xl font-semibold mb-4">Cover Letter Preview</h2>
+            <div id="coverLetterPreview"></div>
+        </div>
+
+         <div class="mt-4 flex justify-center">
+              <button id="downloadBtn" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hidden">Download</button>
+        </div>
+
+
+    </main>
+
+   <footer class="bg-teal-900 text-white py-6">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <p>© 2023 Resume Builder. All rights reserved.</p>
+            <div class="flex space-x-4">
+               <a href="#" class="hover:text-teal-300">Social</a>
+                 <a href="#" class="hover:text-teal-300">Privacy Policy</a>
+                <a href="#" class="hover:text-teal-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/coverLetter.js"></script>
+</body>
+</html>
